@@ -1,0 +1,824 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hannah Moore — Freelance Product/UX Designer based in Melbourne. I love solving challenging problems and creating impactful user experiences.">
+  <meta property="og:title" content="Hannah Moore — Product/UX Designer">
+  <meta property="og:description" content="Freelance Product/UX Designer based in Melbourne, Australia. Available for remote-friendly freelance work.">
+  <title>Hannah Moore — Product/UX Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Original Hannah palette built from #bdc0ff */
+      --periwinkle: #bdc0ff;
+      --periwinkle-light: #e0e1ff;
+      --periwinkle-pale: #f0f0ff;
+      --periwinkle-deep: #8a8edd;
+      --periwinkle-dark: #5a5ea8;
+
+      /* Neutrals */
+      --white: #FAFAFA;
+      --ink: #1e1e2e;
+      --ink-mid: #5c5c7a;
+      --ink-light: #9898b2;
+      --border: rgba(189,192,255,0.25);
+      --border-subtle: rgba(30,30,46,0.08);
+
+      /* Accents pulled from periwinkle's natural companions */
+      --mint: #c4f0e8;
+      --butter: #fef3c7;
+      --blush: #fce4ec;
+
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Nunito', sans-serif;
+      --pad: clamp(20px, 5vw, 80px);
+      --r: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px var(--pad);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,250,250,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 28px; width: auto; }
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 7px 15px;
+      border-radius: 100px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-links a:hover { background: var(--periwinkle-light); color: var(--ink); }
+    .nav-links .cta {
+      background: var(--periwinkle);
+      color: var(--ink) !important;
+      font-weight: 600;
+    }
+    .nav-links .cta:hover { background: var(--periwinkle-deep); color: #fff !important; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 72px var(--pad) 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      min-height: calc(100svh - 65px);
+    }
+
+    .hero-left {}
+
+    .hero-wave {
+      font-size: 2.8rem;
+      display: inline-block;
+      animation: wave 2.8s ease-in-out infinite;
+      transform-origin: 70% 70%;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      20%  { transform: rotate(20deg); }
+      40%  { transform: rotate(-8deg); }
+      60%  { transform: rotate(16deg); }
+      80%  { transform: rotate(-4deg); }
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(44px, 6.5vw, 84px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--periwinkle-dark);
+      position: relative;
+    }
+    .hero-title em::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 4px;
+      height: 3px;
+      background: var(--periwinkle);
+      border-radius: 2px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      max-width: 440px;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+    .tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.01em;
+    }
+    .tag-periwinkle { background: var(--periwinkle-light); color: var(--periwinkle-dark); }
+    .tag-mint        { background: var(--mint); color: #1a6b5a; }
+    .tag-butter      { background: var(--butter); color: #92610a; }
+    .tag-blush       { background: var(--blush); color: #9c3254; }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 14px 28px;
+      border-radius: 100px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { background: var(--periwinkle-dark); transform: translateY(-2px); }
+
+    /* Hero right — big periwinkle card */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-card {
+      background: var(--periwinkle-light);
+      border-radius: var(--r);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      background: var(--periwinkle);
+      border-radius: 50%;
+      top: -60px; right: -60px;
+      opacity: 0.5;
+    }
+    .hero-card-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--periwinkle-dark);
+      margin-bottom: 12px;
+    }
+    .hero-card-stat {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .hero-card-sub { font-size: 0.88rem; color: var(--ink-mid); }
+
+    .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-pill {
+      background: #fff;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--r);
+      padding: 16px 20px;
+      flex: 1;
+      min-width: 120px;
+    }
+    .hero-pill-emoji { font-size: 1.4rem; margin-bottom: 6px; }
+    .hero-pill-label { font-size: 0.78rem; color: var(--ink-mid); font-weight: 500; }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8f5e4;
+      color: #2e7d32;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 100px;
+      align-self: flex-start;
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      background: #43a047;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.8); }
+    }
+
+    /* ── INTRO STRIP ── */
+    .intro-strip {
+      background: var(--periwinkle);
+      padding: 40px var(--pad);
+      overflow: hidden;
+    }
+    .intro-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .intro-strip-text {
+      font-family: var(--serif);
+      font-size: clamp(18px, 2.5vw, 28px);
+      line-height: 1.45;
+      color: var(--ink);
+      max-width: 560px;
+    }
+    .intro-strip-text em { font-style: italic; }
+    .intro-skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-pill {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.6);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      transition: background 0.2s;
+    }
+    .skill-pill:hover { background: rgba(255,255,255,0.85); }
+
+    /* ── SECTION SHARED ── */
+    .section-wrap { max-width: 1200px; margin: 0 auto; }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+
+    /* ── WORK ── */
+    #work { padding: 80px var(--pad); border-top: 1px solid var(--border-subtle); }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .work-card {
+      border-radius: var(--r);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      position: relative;
+    }
+    .work-card:hover { transform: translateY(-5px); box-shadow: 0 24px 56px rgba(30,30,46,0.1); }
+    .work-card.wide { grid-column: 1 / -1; }
+
+    .work-card-inner {
+      padding: 36px 32px 28px;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    /* Each card gets a soft tinted background using the periwinkle family */
+    .work-card:nth-child(1) .work-card-inner { background: var(--periwinkle-pale); }
+    .work-card:nth-child(2) .work-card-inner { background: #f0fff8; }
+    .work-card:nth-child(3) .work-card-inner { background: var(--periwinkle-light); }
+    .work-card:nth-child(4) .work-card-inner { background: #fffbf0; }
+    .work-card:nth-child(5) .work-card-inner { background: #fff0f5; }
+    .work-card:nth-child(6) .work-card-inner { background: #f5fff0; }
+
+    .work-card-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+    .work-card-title {
+      font-family: var(--serif);
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .work-card-type {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .work-card-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 24px;
+    }
+    .work-card-arrow {
+      width: 38px; height: 38px;
+      background: var(--ink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .work-card:hover .work-card-arrow {
+      background: var(--periwinkle-dark);
+      transform: rotate(45deg);
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 80px var(--pad);
+      border-top: 1px solid var(--border-subtle);
+      background: var(--ink);
+      color: #fff;
+    }
+    #about .section-title { color: #fff; }
+
+    .about-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .about-intro {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.5vw, 28px);
+      line-height: 1.5;
+      font-weight: 400;
+      margin-bottom: 28px;
+      color: #fff;
+    }
+    .about-intro em { font-style: italic; color: var(--periwinkle); }
+
+    .about-body { color: rgba(255,255,255,0.72); }
+    .about-body p { margin-bottom: 18px; line-height: 1.8; }
+    .about-body a {
+      color: var(--periwinkle);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(189,192,255,0.35);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+    .about-body a:hover { border-color: var(--periwinkle); }
+
+    .interests-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 14px;
+    }
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .interests-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s, transform 0.3s;
+    }
+    .interests-grid img:hover { opacity: 0.85; transform: scale(1.04); }
+
+    /* ── EXPERIENCE ── */
+    #experience {
+      padding: 80px var(--pad);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .exp-list { margin-top: 8px; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr auto;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      align-items: center;
+    }
+    .exp-dates { font-size: 0.82rem; color: var(--ink-light); }
+    .exp-company { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 2px; }
+    .exp-role { font-size: 0.84rem; color: var(--ink-mid); }
+    .exp-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 100px;
+      background: var(--periwinkle);
+      color: var(--ink);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      padding: 96px var(--pad);
+      border-top: 1px solid var(--border-subtle);
+      background: var(--periwinkle-pale);
+      text-align: center;
+    }
+    .footer-cta-inner { max-width: 560px; margin: 0 auto; }
+    .footer-emoji { font-size: 3rem; display: block; margin-bottom: 20px; }
+    .footer-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .footer-title em { font-style: italic; color: var(--periwinkle-dark); }
+    .footer-sub { color: var(--ink-mid); margin-bottom: 36px; font-size: 1rem; }
+    .footer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 16px 34px;
+      border-radius: 100px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .footer-btn:hover { background: var(--periwinkle-dark); transform: translateY(-2px); }
+
+    footer {
+      padding: 22px var(--pad);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--ink-light);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 48px; }
+      .hero-right { display: none; }
+      .intro-strip-inner { flex-direction: column; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-card.wide { grid-column: 1; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .exp-item { grid-template-columns: 1fr; gap: 6px; }
+      .exp-item > :last-child { justify-self: start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="images/logo/hannah-moore-logo.svg" alt="Hannah Moore" onerror="this.style.display='none'">
+      <span class="nav-logo-text">Hannah Moore</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="mailto:hannahtumbridge@gmail.com?subject=👋" class="cta">Say hello 👋</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-wave" aria-hidden="true">👋</div>
+      <h1 class="hero-title">
+        Hi, I'm Hannah.<br>
+        <em>Product &amp; UX</em><br>
+        Designer.
+      </h1>
+      <p class="hero-desc">
+        An end-to-end designer based in Melbourne who loves solving challenging problems and creating experiences that genuinely connect with people.
+      </p>
+      <div class="hero-tags">
+        <span class="tag tag-periwinkle">Product design</span>
+        <span class="tag tag-mint">UX research</span>
+        <span class="tag tag-butter">Systems thinking</span>
+        <span class="tag tag-blush">Interface design</span>
+      </div>
+    </div>
+
+    <div class="hero-right reveal">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Available for freelance
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Currently at</div>
+        <div class="hero-card-stat">Evergen ⚡</div>
+        <div class="hero-card-sub">Product Designer · Melbourne, AU</div>
+      </div>
+      <div class="hero-pills">
+        <div class="hero-pill">
+          <div class="hero-pill-emoji">🎨</div>
+          <div class="hero-pill-label">End-to-end design</div>
+        </div>
+        <div class="hero-pill">
+          <div class="hero-pill-emoji">🔍</div>
+          <div class="hero-pill-label">UX research</div>
+        </div>
+        <div class="hero-pill">
+          <div class="hero-pill-emoji">💡</div>
+          <div class="hero-pill-label">Product strategy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO STRIP -->
+  <div class="intro-strip">
+    <div class="intro-strip-inner">
+      <p class="intro-strip-text">
+        I strive to create <em>simple, original, and impactful</em> user experiences — always growing and learning something new.
+      </p>
+      <div class="intro-skills">
+        <span class="skill-pill">End-to-end product design</span>
+        <span class="skill-pill">Interface design</span>
+        <span class="skill-pill">UX design</span>
+        <span class="skill-pill">Product strategy</span>
+        <span class="skill-pill">Design systems</span>
+        <span class="skill-pill">Prototyping</span>
+        <span class="skill-pill">User research</span>
+        <span class="skill-pill">Systems thinking</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-wrap">
+      <h2 class="section-title reveal">Selected work</h2>
+      <div class="work-grid">
+
+        <a href="developer-portfolio.html" class="work-card reveal">
+          <div class="work-card-inner">
+            <div>
+              <div class="work-card-num">01 —</div>
+              <div class="work-card-title">Developer Portfolio</div>
+              <div class="work-card-type">Branding · Identity</div>
+            </div>
+            <div class="work-card-footer">
+              <span class="work-card-arrow"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="discord-ios-widget.html" class="work-card reveal">
+          <div class="work-card-inner">
+            <div>
+              <div class="work-card-num">02 —</div>
+              <div class="work-card-title">Discord iOS Widget</div>
+              <div class="work-card-type">Mobile · UX Design</div>
+            </div>
+            <div class="work-card-footer">
+              <span class="work-card-arrow"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="world-cosplay-summit.html" class="work-card wide reveal">
+          <div class="work-card-inner">
+            <div>
+              <div class="work-card-num">03 —</div>
+              <div class="work-card-title">World Cosplay Summit Australia</div>
+              <div class="work-card-type">Web · UX Design</div>
+            </div>
+            <div class="work-card-footer">
+              <span class="work-card-arrow"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.behance.net/gallery/124666143/TerraMate-UXUI-Design-Case-Study" target="_blank" rel="noopener" class="work-card reveal">
+          <div class="work-card-inner">
+            <div>
+              <div class="work-card-num">04 —</div>
+              <div class="work-card-title">TerraMate</div>
+              <div class="work-card-type">Product · UX/UI</div>
+            </div>
+            <div class="work-card-footer">
+              <span class="work-card-arrow"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.behance.net/gallery/122177723/Story-Dogs-UXUI-Case-Study" target="_blank" rel="noopener" class="work-card reveal">
+          <div class="work-card-inner">
+            <div>
+              <div class="work-card-num">05 —</div>
+              <div class="work-card-title">Story Dogs</div>
+              <div class="work-card-type">Non-profit · UX/UI</div>
+            </div>
+            <div class="work-card-footer">
+              <span class="work-card-arrow"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://www.behance.net/gallery/119576283/Government-Agency-Website-Redesign-ATO" target="_blank" rel="noopener" class="work-card reveal">
+          <div class="work-card-inner">
+            <div>
+              <div class="work-card-num">06 —</div>
+              <div class="work-card-title">Australian Tax Office</div>
+              <div class="work-card-type">Government · Web Redesign</div>
+            </div>
+            <div class="work-card-footer">
+              <span class="work-card-arrow"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12.5L12.5 2.5M12.5 2.5H5.5M12.5 2.5V9.5"/></svg></span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title reveal">About me</h2>
+        <p class="about-intro reveal">
+          Hi, I'm Hannah — a freelance Product/UX Designer who's <em>always trying to grow and learn something new.</em>
+        </p>
+        <div class="about-body reveal">
+          <p>Currently at <a href="https://evergen.energy/" target="_blank" rel="noopener">Evergen</a> as Product Designer, collaborating with teams across platforms. It's a creatively charged environment where I get to shape user experiences and design interfaces that genuinely connect with users — finding the perfect balance between looks and usability.</p>
+          <p>Previously at <a href="https://www.creativemass.com/" target="_blank" rel="noopener">Creativemass</a> on <a href="https://www.creativemass.com/product/" target="_blank" rel="noopener">WealthConnect</a>, a sophisticated financial planning platform built on Salesforce. I worked across multiple product squads solving complex problems for financial advisors.</p>
+          <p>Before that, UX/UI Designer in the Innovation Team at <a href="https://www.resolutiondigital.com.au/" target="_blank" rel="noopener">Resolution Digital</a>, building new experiences for retainer clients.</p>
+          <p>And before my UX career — I worked as a product developer in the garment industry for brands like <a href="https://articleonelabel.com/" target="_blank" rel="noopener">Article One</a>, <a href="https://www.mjbale.com/" target="_blank" rel="noopener">M.J. Bale</a>, and <a href="https://www.bond-eye.com/" target="_blank" rel="noopener">Bond-eye Australia</a>. Design has always been part of who I am.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="interests-label">A few of my interests</div>
+        <div class="interests-grid">
+          <img src="images/interests/interests-2.png" alt="" loading="lazy">
+          <img src="images/interests/interests-9.png" alt="" loading="lazy">
+          <img src="images/interests/interests-1.png" alt="" loading="lazy">
+          <img src="images/interests/interests-10.png" alt="" loading="lazy">
+          <img src="images/interests/interests-11.png" alt="" loading="lazy">
+          <img src="images/interests/interests-7.png" alt="" loading="lazy">
+          <img src="images/interests/interests-3.png" alt="" loading="lazy">
+          <img src="images/interests/interests-4.png" alt="" loading="lazy">
+          <img src="images/interests/interests-6.png" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-wrap">
+      <h2 class="section-title reveal">Experience</h2>
+      <div class="exp-list">
+
+        <div class="exp-item reveal">
+          <div class="exp-dates">Oct 2024 – Present</div>
+          <div>
+            <div class="exp-company">Evergen</div>
+            <div class="exp-role">Product Designer</div>
+          </div>
+          <span class="exp-badge">Current ✦</span>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-dates">Nov 2022 – Oct 2024</div>
+          <div>
+            <div class="exp-company">Evergen</div>
+            <div class="exp-role">UX/UI Designer</div>
+          </div>
+          <span></span>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-dates">Nov 2021 – Oct 2022</div>
+          <div>
+            <div class="exp-company">Creativemass</div>
+            <div class="exp-role">UX/UI Designer</div>
+          </div>
+          <span></span>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-dates">Aug 2021 – Nov 2021</div>
+          <div>
+            <div class="exp-company">Resolution Digital</div>
+            <div class="exp-role">UX/UI Designer</div>
+          </div>
+          <span></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <div class="footer-cta-inner reveal">
+      <span class="footer-emoji">✉️</span>
+      <h2 class="footer-title">I'm Hannah — <em>let's work together</em></h2>
+      <p class="footer-sub">Based in Melbourne, available for remote-friendly freelance. I'd love to hear about your project.</p>
+      <a href="mailto:hannahtumbridge@gmail.com?subject=👋" class="footer-btn">EMAIL ME →</a>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2025 Hannah Moore</span>
+    <span>Melbourne, Australia · Available for freelance</span>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
+          e.target.style.transitionDelay = (siblings.indexOf(e.target) * 70) + 'ms';
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
