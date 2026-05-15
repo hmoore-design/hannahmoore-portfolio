@@ -541,6 +541,9 @@
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
       .exp-item > :last-child { justify-self: start; }
     }
+    @media (max-width: 600px) {
+      .nav-links li:not(:last-child) { display: none; }
+    }
   </style>
 </head>
 <body>
