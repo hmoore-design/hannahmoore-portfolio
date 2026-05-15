@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -29,41 +29,96 @@
     html { scroll-behavior: smooth; }
     body { background: var(--white); color: var(--ink); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
 
+    /* NAV */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 18px var(--pad); position: sticky; top: 0; z-index: 100; background: rgba(250,250,250,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo img { height: 28px; width: auto; }
-    .nav-logo-text { font-family: var(--serif); font-size: 1rem; font-style: italic; color: var(--ink); }
     .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
     .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; padding: 7px 15px; border-radius: 100px; transition: background 0.18s, color 0.18s; }
     .nav-links a:hover { background: var(--periwinkle-light); color: var(--ink); }
     .nav-links .cta { background: var(--periwinkle); color: var(--ink) !important; font-weight: 600; }
     .nav-links .cta:hover { background: var(--periwinkle-deep); color: #fff !important; }
 
-    .case-hero { padding: 72px var(--pad) 64px; max-width: 900px; margin: 0 auto; }
-    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; margin-bottom: 48px; transition: color 0.2s; }
+    /* HERO */
+    .case-hero { background: var(--periwinkle-pale); padding: 64px var(--pad) 0; }
+    .case-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: end;
+    }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; margin-bottom: 40px; transition: color 0.2s; }
     .back-link:hover { color: var(--periwinkle-dark); }
-    .case-meta { display: flex; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
-    .case-meta-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 4px; }
-    .case-meta-value { font-size: 0.9rem; color: var(--ink-mid); font-weight: 500; }
-    .case-title { font-family: var(--serif); font-size: clamp(36px, 6vw, 72px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; margin-bottom: 20px; }
-    .case-tagline { font-size: 1.1rem; color: var(--ink-mid); max-width: 580px; line-height: 1.7; }
-    .case-hero-stripe { height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--periwinkle), var(--periwinkle-deep)); margin: 40px 0 0; }
+    .case-meta { display: flex; gap: 32px; margin-bottom: 28px; flex-wrap: wrap; }
+    .case-meta-item { }
+    .case-meta-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 3px; }
+    .case-meta-value { font-size: 0.88rem; color: var(--ink-mid); font-weight: 500; }
+    .case-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; margin-bottom: 16px; }
+    .case-tagline { font-size: 1rem; color: var(--ink-mid); line-height: 1.75; padding-bottom: 48px; }
+    .case-hero-image { align-self: end; }
+    .case-hero-image img { width: 100%; height: auto; display: block; border-radius: var(--r) var(--r) 0 0; border: 1px solid var(--border); border-bottom: none; }
 
-    .case-body { max-width: 720px; margin: 0 auto; padding: 72px var(--pad); }
-    .case-section { margin-bottom: 64px; }
-    .case-section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--periwinkle-dark); background: var(--periwinkle-pale); padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; }
-    .case-section h2 { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 18px; }
-    .case-section p { color: var(--ink-mid); line-height: 1.8; margin-bottom: 16px; }
+    /* LAYOUT */
+    .case-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 72px;
+      padding: 72px var(--pad) 96px;
+      align-items: start;
+    }
+
+    /* SIDEBAR */
+    .case-sidebar { position: sticky; top: 90px; }
+    .sidebar-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 16px; }
+    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      padding: 7px 0;
+      transition: color 0.2s;
+    }
+    .sidebar-nav a::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .sidebar-nav a:hover { color: var(--ink-mid); }
+    .sidebar-nav a.active { color: var(--periwinkle-dark); font-weight: 600; }
+    .sidebar-nav a.active::before { transform: scale(1.5); }
+
+    /* CONTENT */
+    .case-content { min-width: 0; }
+    .case-section { margin-bottom: 72px; scroll-margin-top: 100px; }
+    .case-section:last-child { margin-bottom: 0; }
+    .case-section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--periwinkle-dark); background: var(--periwinkle-pale); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
+    .case-section h2 { font-family: var(--serif); font-size: clamp(22px, 2.5vw, 30px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .case-section p { color: var(--ink-mid); line-height: 1.85; margin-bottom: 16px; }
+    .case-section p:last-child { margin-bottom: 0; }
     .case-section strong { color: var(--ink); font-weight: 600; }
 
-    /* Feature pills for key features */
     .feature-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
     .feature-pill { background: var(--periwinkle-light); color: var(--periwinkle-dark); font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 100px; }
 
-    figure { margin: 48px 0; }
+    figure { margin: 40px 0; }
     figure img { width: 100%; height: auto; border-radius: var(--r); display: block; border: 1px solid var(--border); }
-    figcaption { font-size: 0.8rem; color: var(--ink-light); text-align: center; margin-top: 12px; }
+    figcaption { font-size: 0.78rem; color: var(--ink-light); margin-top: 10px; }
 
+    .figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+    .figure-row figure { margin: 0; }
+
+    /* NEXT */
     .next-wrap { border-top: 1px solid var(--border); }
     .next-project { display: flex; align-items: center; justify-content: space-between; padding: 56px var(--pad); max-width: 1200px; margin: 0 auto; text-decoration: none; color: inherit; transition: background 0.2s; gap: 24px; }
     .next-project:hover { background: var(--periwinkle-pale); }
@@ -72,10 +127,22 @@
     .next-arrow { width: 52px; height: 52px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
     .next-project:hover .next-arrow { background: var(--periwinkle); border-color: var(--periwinkle); }
 
-    footer { padding: 22px var(--pad); border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--ink-light); flex-wrap: wrap; gap: 10px; }
+    footer { padding: 22px var(--pad); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--ink-light); flex-wrap: wrap; gap: 10px; }
 
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .case-hero-inner { grid-template-columns: 1fr; }
+      .case-hero-image { display: none; }
+      .case-layout { grid-template-columns: 1fr; gap: 0; padding-top: 48px; }
+      .case-sidebar { position: static; margin-bottom: 48px; }
+      .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+      .sidebar-nav a { background: var(--periwinkle-pale); padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; }
+      .sidebar-nav a::before { display: none; }
+      .figure-row { grid-template-columns: 1fr; }
+    }
     @media (max-width: 600px) {
       .nav-links li:not(:last-child) { display: none; }
     }
@@ -94,89 +161,117 @@
     </ul>
   </nav>
 
+  <!-- HERO -->
   <div class="case-hero">
-    <a href="index.html#work" class="back-link">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 7H3M7 11L3 7l4-4"/></svg>
-      All work
-    </a>
-    <div class="case-meta">
-      <div><div class="case-meta-label">Discipline</div><div class="case-meta-value">Mobile · UX Design</div></div>
-      <div><div class="case-meta-label">Platform</div><div class="case-meta-value">iOS</div></div>
-      <div><div class="case-meta-label">Type</div><div class="case-meta-value">Concept project</div></div>
+    <div class="case-hero-inner">
+      <div class="case-hero-left">
+        <a href="index.html#work" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 7H3M7 11L3 7l4-4"/></svg>
+          All work
+        </a>
+        <div class="case-meta">
+          <div class="case-meta-item">
+            <div class="case-meta-label">Discipline</div>
+            <div class="case-meta-value">Mobile · UX Design</div>
+          </div>
+          <div class="case-meta-item">
+            <div class="case-meta-label">Platform</div>
+            <div class="case-meta-value">iOS</div>
+          </div>
+          <div class="case-meta-item">
+            <div class="case-meta-label">Type</div>
+            <div class="case-meta-value">Concept project</div>
+          </div>
+        </div>
+        <h1 class="case-title">Discord iOS Widget</h1>
+        <p class="case-tagline">Designing a native iOS widget for Discord — bringing key social features to the home screen without opening the app.</p>
+      </div>
+      <div class="case-hero-image">
+        <img src="images/projects/discord-hifi.png" alt="Discord iOS Widget high-fidelity designs">
+      </div>
     </div>
-    <h1 class="case-title">Discord iOS Widget</h1>
-    <p class="case-tagline">Designing a native iOS widget for Discord — bringing key social features to the home screen without opening the app.</p>
-    <div class="case-hero-stripe"></div>
   </div>
 
-  <div class="case-body">
+  <!-- BODY -->
+  <div class="case-layout">
 
-    <div class="case-section reveal">
-      <div class="case-section-label">Overview</div>
-      <h2>Closing the gap on iOS widget engagement</h2>
-      <p>With the current industry push for iOS products to include widgets, Discord is missing out on a share of user engagement and staying on trend with other social media apps. Widgets improve overall app functionality and save users time — giving them instant access to key features without opening the app.</p>
-      <p>With over 150 million active monthly users, Discord has primarily targeted adults and gamers and has become a core social media choice since launching in 2015. This project explores what a thoughtful Discord widget could look like.</p>
-    </div>
+    <!-- Sidebar -->
+    <aside class="case-sidebar">
+      <div class="sidebar-label">Contents</div>
+      <ul class="sidebar-nav">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#design">Design</a></li>
+        <li><a href="#outcome">Outcome</a></li>
+      </ul>
+    </aside>
 
-    <figure class="reveal">
-      <img src="images/projects/discord-overview.png" alt="Discord iOS Widget design overview" loading="lazy">
-      <figcaption>Discord iOS widget concepts across multiple sizes</figcaption>
-    </figure>
+    <!-- Content -->
+    <div class="case-content">
 
-    <div class="case-section reveal">
-      <div class="case-section-label">Process</div>
-      <h2>Research, features, and iOS guidelines</h2>
-      <p>Widgets by design need to be concise, summarising the core features of an app by providing instant access to meaningful content. Content and function are consistent across iOS widget sizes, though different visualisations are used depending on size selected.</p>
-      <p>Along with information architecture mapping, product research, and user interviews, the key features selected for a Discord widget were:</p>
-      <div class="feature-pills">
-        <span class="feature-pill">Account activity status</span>
-        <span class="feature-pill">Friends list access</span>
-        <span class="feature-pill">Search functionality</span>
-        <span class="feature-pill">Direct message notifications</span>
-        <span class="feature-pill">Server-wide notifications</span>
+      <div id="overview" class="case-section reveal">
+        <div class="case-section-label">Overview</div>
+        <h2>Closing the gap on iOS widget engagement</h2>
+        <p>With the current industry push for iOS products to include widgets, Discord is missing out on a share of user engagement and staying on trend with other social media apps. Widgets improve overall app functionality and save users time — giving them instant access to key features without opening the app.</p>
+        <p>With over 150 million active monthly users, Discord has primarily targeted adults and gamers and has become a core social media choice since launching in 2015. This project explores what a thoughtful Discord widget could look like.</p>
+        <figure>
+          <img src="images/projects/discord-overview.png" alt="Discord iOS Widget design overview" loading="lazy">
+          <figcaption>Discord iOS widget concepts across multiple sizes</figcaption>
+        </figure>
       </div>
-      <p>Defining the widget's features allows content to be shared dynamically throughout the day, keeping it relevant and maintaining a prominent position on a user's device.</p>
+
+      <div id="process" class="case-section reveal">
+        <div class="case-section-label">Process</div>
+        <h2>Research, features, and iOS guidelines</h2>
+        <p>Widgets by design need to be concise, summarising the core features of an app by providing instant access to meaningful content. Content and function are consistent across iOS widget sizes, though different visualisations are used depending on size selected.</p>
+        <p>Along with information architecture mapping, product research, and user interviews, the key features selected for a Discord widget were:</p>
+        <div class="feature-pills">
+          <span class="feature-pill">Account activity status</span>
+          <span class="feature-pill">Friends list access</span>
+          <span class="feature-pill">Search functionality</span>
+          <span class="feature-pill">Direct message notifications</span>
+          <span class="feature-pill">Server-wide notifications</span>
+        </div>
+        <p>Defining the widget's features allows content to be shared dynamically throughout the day, keeping it relevant and maintaining a prominent position on a user's device.</p>
+        <figure>
+          <img src="images/projects/discord-research.png" alt="Discord widget information architecture and research" loading="lazy">
+          <figcaption>Information architecture mapping and feature research</figcaption>
+        </figure>
+      </div>
+
+      <div id="design" class="case-section reveal">
+        <div class="case-section-label">Design</div>
+        <h2>From sketches to high-fidelity</h2>
+        <p>Research and user data concluded that widgets need variety in available designs, even within the same size. Variety allows users to customise and personalise the widget better for their needs.</p>
+        <p>Using the current iOS component library for sizing and UI specifications, the ideation process moved from sketches to low-fidelity wireframes. User journeys were mapped to different widget designs and refined further through testing.</p>
+        <figure>
+          <img src="images/projects/discord-wireframes.png" alt="Discord widget wireframes and user journey mapping" loading="lazy">
+          <figcaption>Low-fidelity wireframes and user journey mapping</figcaption>
+        </figure>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/discord-exploration.png" alt="Discord widget design exploration" loading="lazy">
+            <figcaption>Design exploration across widget sizes</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/discord-hifi.png" alt="Discord widget high-fidelity dark and light mode" loading="lazy">
+            <figcaption>High-fidelity in dark and light mode</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div id="outcome" class="case-section reveal">
+        <div class="case-section-label">Outcome</div>
+        <h2>A handover-ready, customisable design</h2>
+        <p>Utilising Discord's branding guidelines, dark and light mode high-fidelity prototypes were built after running user and heuristic testing. Users can pick between several options to best suit their device and customise the focus of the widget design.</p>
+        <p>Due to the highly customisable elements of the design, an annotated design file and template was prepared for handover, making it straightforward for engineers to implement.</p>
+        <figure>
+          <img src="images/projects/discord-final.png" alt="Discord widget final designs and annotation" loading="lazy">
+          <figcaption>Final annotated designs ready for developer handover</figcaption>
+        </figure>
+      </div>
+
     </div>
-
-    <figure class="reveal">
-      <img src="images/projects/discord-research.png" alt="Discord widget information architecture and research" loading="lazy">
-      <figcaption>Information architecture mapping and feature research</figcaption>
-    </figure>
-
-    <div class="case-section reveal">
-      <div class="case-section-label">Design</div>
-      <h2>From sketches to high-fidelity</h2>
-      <p>Research and user data concluded that widgets need variety in available designs, even within the same size. Variety allows users to customise and personalise the widget better for their needs.</p>
-      <p>Using the current iOS component library for sizing and UI specifications, the ideation process moved from sketches to low-fidelity wireframes. User journeys were mapped to different widget designs and refined further through testing.</p>
-    </div>
-
-    <figure class="reveal">
-      <img src="images/projects/discord-wireframes.png" alt="Discord widget wireframes and user journey mapping" loading="lazy">
-      <figcaption>Low-fidelity wireframes and user journey mapping</figcaption>
-    </figure>
-
-    <figure class="reveal">
-      <img src="images/projects/discord-exploration.png" alt="Discord widget design exploration" loading="lazy">
-      <figcaption>Design exploration across widget sizes</figcaption>
-    </figure>
-
-    <figure class="reveal">
-      <img src="images/projects/discord-hifi.png" alt="Discord widget high-fidelity dark and light mode" loading="lazy">
-      <figcaption>High-fidelity prototypes in dark and light mode</figcaption>
-    </figure>
-
-    <div class="case-section reveal">
-      <div class="case-section-label">Outcome</div>
-      <h2>A handover-ready, customisable design</h2>
-      <p>Utilising Discord's branding guidelines, dark and light mode high-fidelity prototypes were built after running user and heuristic testing. Users can pick between several options to best suit their device and customise the focus of the widget design.</p>
-      <p>Due to the highly customisable elements of the design, an annotated design file and template was prepared for handover, making it straightforward for engineers to implement.</p>
-    </div>
-
-    <figure class="reveal">
-      <img src="images/projects/discord-final.png" alt="Discord widget final designs and annotation" loading="lazy">
-      <figcaption>Final annotated designs ready for developer handover</figcaption>
-    </figure>
-
   </div>
 
   <div class="next-wrap">
@@ -201,10 +296,24 @@
   </footer>
 
   <script>
+    // Reveal on scroll
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Sidebar active section tracking
+    const sections = document.querySelectorAll('.case-section[id]');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' });
+    sections.forEach(s => sectionObserver.observe(s));
   </script>
+
 </body>
 </html>
