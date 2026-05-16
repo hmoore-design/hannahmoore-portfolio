@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hannah Moore — Product/UX Designer based in Melbourne with deep expertise in energy, EV charging, and distributed energy resources. Available for remote-friendly freelance work.">
+  <meta name="description" content="Hannah Moore — Product/UX Designer based in Melbourne with deep expertise in energy, EV charging, and distributed energy resources.">
   <meta property="og:title" content="Hannah Moore — Product/UX Designer">
   <meta property="og:description" content="Product/UX Designer based in Melbourne, Australia. Specialist in energy and EV sector digital products. Available for remote-friendly freelance work.">
   <title>Hannah Moore — Product/UX Designer</title>
@@ -331,9 +331,24 @@
     .work-card:hover { transform: translateY(-5px); box-shadow: 0 24px 56px rgba(30,30,46,0.1); }
     .work-card.wide { grid-column: 1 / -1; }
 
+    .work-card-thumb {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+    }
+    .work-card.wide .work-card-thumb { height: 320px; }
+    .work-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .work-card:hover .work-card-thumb img { transform: scale(1.03); }
+
     .work-card-inner {
-      padding: 36px 32px 28px;
-      min-height: 240px;
+      padding: 28px 32px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -669,6 +684,9 @@
       <div class="work-grid">
 
         <a href="zelora-enreal.html" class="work-card wide reveal">
+          <div class="work-card-thumb">
+            <img src="images/projects/enrealzeloraheroshot.png" alt="Zelora and Enreal app screens">
+          </div>
           <div class="work-card-inner">
             <div>
               <div class="work-card-num">01 —</div>
@@ -682,6 +700,9 @@
         </a>
 
         <a href="pooled.html" class="work-card reveal">
+          <div class="work-card-thumb">
+            <img src="images/projects/pooledhero.png" alt="Pooled by Poolwerx app screens">
+          </div>
           <div class="work-card-inner">
             <div>
               <div class="work-card-num">02 —</div>
@@ -695,6 +716,9 @@
         </a>
 
         <a href="discord-ios-widget.html" class="work-card reveal">
+          <div class="work-card-thumb">
+            <img src="images/projects/discord-overview.png" alt="Discord iOS widget concepts">
+          </div>
           <div class="work-card-inner">
             <div>
               <div class="work-card-num">03 —</div>
