@@ -275,56 +275,26 @@
           </figure>
         </div>
 
-        <h3>Keeping the language of the trade</h3>
-        <p>Early in the project there was an assumption that we should simplify the vocabulary — translate ORP into "sanitisation level," replace "Chlorinator" with something more generic. User interviews pushed back quickly. Pool owners and Poolwerx technicians use these terms fluently. They're on the labels of the chemicals they buy, in the service manuals, in every conversation they've had with a pool tech. Simplifying the language would have made the app feel condescending and harder to map to the physical equipment in their backyard.</p>
-        <p>The technical vocabulary stayed. Where a term needed context, I added a brief inline explanation — "ORP (Oxidation-reduction potential) measures the ability of your pool to cleanse itself" — rather than replacing the term itself.</p>
-
-        <h3>Making the pool's energy load visible</h3>
-        <p>A pool is one of the biggest energy loads in a home — filter pump, chlorinator, and sweep running daily add up quickly — but most pool owners have no visibility into what that costs or when it's happening. The Energy tab was part of the original app; the redesign gave it a clearer purpose. By surfacing a weekly and monthly breakdown by device, owners could start to see patterns and make smarter decisions about scheduling: reducing grid draw, or shifting equipment to run when solar generation is highest.</p>
-        <p>We worked within a data constraint: only 12 months of history was available from the backend. This shaped the design toward rolling time windows — 7 days, 30 days, 12 months — rather than a lifetime view. The focus was on recognisable patterns and cost trends, not cumulative return.</p>
+        <h3>Equipment built for every pool's reality</h3>
+        <p>No two pools have the same setup. One might have a filter pump, chlorinator, and sweep; another adds a heater, heat pump, UV sanitiser, acid dosing system, or more. The Equipment tab was built to handle up to 12 different device types — presenting whatever combination existed in that pool clearly and consistently, with current schedule, status, and a quick way to act when needed.</p>
+        <p>That quick action was what the engineering team called "Start" — actually a specific feature: running a device immediately, outside its schedule, regardless of automation. Pool owners were already doing this instinctively. Renaming it <strong>Rapid Start</strong> wasn't inventing a concept; it was finally giving a clear name to something they'd always done. Each device surfaces its Rapid Start control alongside a timestamp — "Last Updated 25 min ago" — so users know how fresh the data is before acting on it.</p>
         <div class="figure-row">
           <figure>
-            <img src="images/projects/pooledenergy.png" alt="Energy tab 7-day view showing weekly breakdown by Filter Pump, Chlorinator and Sweep" loading="lazy">
-            <figcaption>7-day view — patterns at a weekly glance</figcaption>
+            <img src="images/projects/pooledequipment.png" alt="Equipment tab showing Filter Pump, Chlorinator and Sweep with schedules and status" loading="lazy">
+            <figcaption>Equipment tab — every device, its schedule, and status at a glance</figcaption>
           </figure>
           <figure>
-            <img src="images/projects/pooledenergyyearly.png" alt="Energy tab 12-month view showing full year breakdown by device" loading="lazy">
-            <figcaption>12-month view — the full picture within the data constraint</figcaption>
+            <img src="images/projects/pooledrapidstate.png" alt="Filter Pump Rapid Start screen showing in-progress state, time remaining, and Last Updated timestamp" loading="lazy">
+            <figcaption>Rapid Start in progress — with a timestamp so users know how fresh the data is</figcaption>
           </figure>
         </div>
-
-        <h3>Designing for every pool's configuration</h3>
-        <p>No two pools have the same setup. One might have a filter pump, chlorinator, and sweep; another adds a heater, heat pump, UV sanitiser, acid dosing system, or more. The Equipment tab was built to handle up to 12 different device types — presenting whatever combination existed in that specific pool clearly and consistently, with current status, active schedule, and direct access to Rapid Start for each device. The design challenge was building a system that worked just as well for a simple three-device pool as for the most complex setup, without adding friction for the majority of owners who only need the basics.</p>
-        <figure>
-          <img src="images/projects/pooledequipment.png" alt="Equipment tab showing Filter Pump, Chlorinator and Sweep with schedules and status" loading="lazy">
-          <figcaption>Equipment tab — every device in the pool, its current schedule, and status at a glance</figcaption>
-        </figure>
-
-        <h3>Rapid Start — giving a clear name to something users already did</h3>
-        <p>What the engineering team called "Start" was actually a specific feature: running an equipment piece immediately, outside its normal schedule, regardless of automation settings. Pool owners were already doing this instinctively — running the filter pump before guests arrived, for instance. The behaviour existed. It just had no clear name.</p>
-        <p>Renaming it <strong>Rapid Start</strong> wasn't creating a new concept. It was surfacing an existing one clearly enough that users could find it, understand what it does, and trust that they were doing the right thing. The screen also surfaces data freshness with a timestamp — "Last Updated 25 min ago" — a deliberate choice given that the system only retrieves sensor data when the app is opened. Hiding a stale reading would have been deceptive; showing the age of the data lets users decide whether to act on it.</p>
-        <figure>
-          <img src="images/projects/pooledrapidstate.png" alt="Filter Pump Rapid Start screen showing in-progress state, time remaining, and Last Updated timestamp" loading="lazy">
-          <figcaption>Rapid Start — in progress, with a clear timestamp so users know how fresh the data is</figcaption>
-        </figure>
 
         <h3>Giving users real control, not just defaults</h3>
-        <p>The original app had automation settings, but they were buried and hard to reach — most pool owners had no idea they could customise how their pool ran. I redesigned Automation Preferences as a dedicated, accessible screen with clear toggles and plain-language explanations for each option: when equipment runs during the day, whether to add a night-time chlorination burst, whether to account for a pool cover or rooftop solar. Surfacing these properly meant pool owners could configure their pool to suit how they actually live, rather than leaving it on whatever defaults the installer had set.</p>
-        <p>The solar-aware scheduling option came directly from the energy domain knowledge I'd built on Zelora and Enreal — pool owners with rooftop solar can shift their pool's running time to coincide with peak generation, reducing grid draw without any manual effort.</p>
-        <div class="figure-row-3">
-          <figure>
-            <img src="images/projects/pooledautomation.jpg" alt="Automation Preferences screen with running mode, night-time chlorination, solar and pool cover toggles" loading="lazy">
-            <figcaption>Automation Preferences — surfaced as a first-class screen</figcaption>
-          </figure>
-          <figure>
-            <img src="images/projects/pooledschedule.png" alt="Add Schedule screen with equipment dropdown, time pickers and day selector" loading="lazy">
-            <figcaption>Scheduling — set it once, trust the automation</figcaption>
-          </figure>
-          <figure>
-            <img src="images/projects/pooledmaintenance.jpg" alt="Maintenance screen with 2x2 grid of tasks including Calibrate pH, Guided Backwash and Superchlorination" loading="lazy">
-            <figcaption>Maintenance — structured tasks, not a manual</figcaption>
-          </figure>
-        </div>
+        <p>The original app had automation settings, but they were buried — most pool owners had no idea they could customise how their pool ran. I redesigned Automation Preferences as a dedicated screen with clear toggles and plain-language explanations for each option: when equipment runs during the day, whether to add a night-time chlorination burst, whether to account for a pool cover or rooftop solar. Pool owners could finally configure their pool around how they actually live, rather than leaving it on whatever the installer had set.</p>
+        <figure>
+          <img src="images/projects/pooledautomation.jpg" alt="Automation Preferences screen with running mode, night-time chlorination, solar and pool cover toggles" loading="lazy">
+          <figcaption>Automation Preferences — surfaced as a dedicated, accessible screen</figcaption>
+        </figure>
       </div>
 
       <div id="dashboard" class="case-section reveal">
@@ -346,8 +316,8 @@
 
       <div id="outcome" class="case-section reveal">
         <div class="case-section-label">Outcome</div>
-        <h2>In pilot with Poolwerx, presented to the board</h2>
-        <p>Pooled is currently live in pilot with Poolwerx on iOS and Android. The app was presented to the Poolwerx board in February 2024 ahead of the pilot launch, replacing the previous engineering-first app with a product built around the way pool owners actually think about their pool.</p>
+        <h2>In pilot with Poolwerx</h2>
+        <p>Pooled is currently live in pilot with Poolwerx on iOS and Android, replacing the previous engineering-first app with a product built around the way pool owners actually think about their pool.</p>
         <div class="store-links">
           <a href="https://apps.apple.com/au/app/pooled-by-poolwerx/id6743017329" target="_blank" rel="noopener" class="store-link">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
