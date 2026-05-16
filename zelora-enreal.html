@@ -130,6 +130,13 @@
 
     footer { padding: 22px var(--pad); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--ink-light); flex-wrap: wrap; gap: 10px; }
 
+    .store-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .store-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 100px; text-decoration: none; font-size: 0.82rem; font-weight: 600; color: var(--ink); background: var(--white); transition: background 0.18s, border-color 0.18s; }
+    .store-link:hover { background: var(--periwinkle-pale); border-color: var(--periwinkle); }
+    .store-link svg { flex-shrink: 0; }
+    .store-link-group { margin-top: 36px; }
+    .store-link-group-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 12px; }
+
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -177,7 +184,7 @@
           </div>
           <div class="case-meta-item">
             <div class="case-meta-label">Platform</div>
-            <div class="case-meta-value">iOS · Web</div>
+            <div class="case-meta-value">iOS · Android · Web</div>
           </div>
           <div class="case-meta-item">
             <div class="case-meta-label">Company</div>
@@ -213,8 +220,8 @@
       <div id="overview" class="case-section reveal">
         <div class="case-section-label">Overview</div>
         <h2>One product powering two consumer energy brands</h2>
-        <p>Zelora and Enreal are consumer-facing apps that give solar and battery owners visibility over their home energy — generation, consumption, export, and savings. Both products run on the same underlying platform, designed at Evergen. My role covered the full UX and UI for both apps, along with the white-label design system that allows a single product to serve two distinct brands without rebuilding from scratch.</p>
-        <p>Zelora is a Bunnings-backed product for homeowners with rooftop solar and battery storage. Enreal serves home electrification customers — households transitioning away from gas to an all-electric home. The design brief was consistent across both: make complex, real-time energy data legible and motivating for everyday homeowners, not energy professionals.</p>
+        <p>Zelora and Enreal are consumer-facing apps that give solar and battery owners visibility over their home energy — generation, consumption, export, and savings. Both products run on the same underlying platform. I was the sole product designer across both — responsible for research, information architecture, UX, visual design, and the white-label system that allows a single product to serve two distinct brands without rebuilding from scratch.</p>
+        <p><a href="https://zelora.com.au" target="_blank" rel="noopener" style="color:var(--periwinkle-dark);font-weight:600;text-decoration:none;">Zelora</a> is a Bunnings-backed product for homeowners with rooftop solar and battery storage. <a href="https://enreal.com.au" target="_blank" rel="noopener" style="color:var(--periwinkle-dark);font-weight:600;text-decoration:none;">Enreal</a> serves home electrification customers — households transitioning away from gas to an all-electric home. The design brief was consistent across both: make complex, real-time energy data legible and motivating for everyday homeowners, not energy professionals.</p>
         <div class="figure-row">
           <figure>
             <img src="images/projects/designsprintwireframe1.png" alt="Design sprint exploring energy data structure for non-technical users" loading="lazy">
@@ -232,7 +239,7 @@
         <h2>Four decisions that shaped the product</h2>
 
         <h3>Anchoring the home screen in a house</h3>
-        <p>Early design sprint explorations used spider diagrams and radial data visualisations — technically accurate representations of energy flow, but ones that required interpretation to read. The decision was made to anchor the home screen around a house graphic: a central metaphor that homeowners orient to immediately, with energy flows mapped to the familiar parts of their home rather than to abstract chart segments.</p>
+        <p>Early design sprint explorations used spider diagrams and radial data visualisations — technically accurate representations of energy flow, but ones that required interpretation to read. I anchored the home screen around a house graphic instead: a central metaphor that homeowners orient to immediately, with energy flows mapped to the familiar parts of their home rather than to abstract chart segments.</p>
         <div class="figure-row">
           <figure>
             <img src="images/projects/wireframehome1.png" alt="Early wireframe exploration using spider diagram for energy data" loading="lazy">
@@ -245,7 +252,7 @@
         </div>
 
         <h3>Designing for two levels of engagement</h3>
-        <p>Research pointed to a clear split in how users engage with their energy data: most want a quick status check — is my solar generating, am I exporting to the grid, am I saving money? A smaller but active group wants to go much deeper into real-time flows and historical data. Rather than designing two separate interfaces or landing on one middle ground that served neither well, a toggle was introduced directly on the home screen. Users can switch between a simplified summary view and a detailed live chart view in one tap — the simple view is the default, the chart view is always accessible.</p>
+        <p>Research pointed to a clear split in how users engage with their energy data: most want a quick status check — is my solar generating, am I exporting to the grid, am I saving money? A smaller but active group wants to go much deeper into real-time flows and historical data. Rather than designing two separate interfaces or landing on one middle ground that served neither well, I introduced a toggle directly on the home screen. Users can switch between a simplified summary view and a detailed live chart view in one tap — the simple view is the default, the chart view is always accessible.</p>
         <div class="figure-row">
           <figure>
             <img src="images/projects/enreal-house.png" alt="Simple mode showing at-a-glance energy status with house graphic" loading="lazy">
@@ -257,21 +264,26 @@
           </figure>
         </div>
 
-        <h3>Making savings legible, not just visible</h3>
-        <p>Showing a kilowatt-hour figure alongside a dollar amount is accurate but rarely meaningful to a homeowner glancing at their phone. The savings screen was designed to break returns down by source — solar generation, battery discharge, and tariff optimisation — and includes an estimated bill savings figure that maps directly to what users see on their electricity bill. Carbon savings are expressed in relatable equivalents so users can connect their system's output to something tangible.</p>
+        <h3>Making the financial return visible, every day</h3>
+        <p>For homeowners who have spent $10,000–$20,000 on a solar and battery system, the most important question the app can answer is: is this paying off? I designed the savings experience to lead with financial return — bill savings, feed-in earnings, and avoided energy costs — broken down in the same language as an electricity bill, so users can directly compare what they see in the app to what arrives in their inbox.</p>
+        <p>I chose a seven-day savings view over a single-day figure deliberately. One day of data is easily skewed by weather or an unusual usage spike; seven days gives users a realistic and honest picture of what their system is actually earning them, and builds confidence in the investment over time. Carbon savings are presented as a secondary layer — available for users who want to connect their financial return to a broader environmental impact.</p>
         <div class="figure-row">
           <figure>
-            <img src="images/projects/enreal-savings.png" alt="Enreal savings screen showing bill savings breakdown by source" loading="lazy">
-            <figcaption>Enreal — savings broken down by source, mapped to the electricity bill</figcaption>
+            <img src="images/projects/enreal-savings.png" alt="Enreal savings screen showing financial returns from solar and battery" loading="lazy">
+            <figcaption>Enreal — savings overview, leading with financial return</figcaption>
           </figure>
           <figure>
-            <img src="images/projects/zelora-carbonsavings.png" alt="Zelora carbon savings view showing environmental impact in relatable terms" loading="lazy">
-            <figcaption>Zelora — carbon savings expressed in terms users can relate to</figcaption>
+            <img src="images/projects/enreal-savings-estimated-bill-savings.png" alt="Enreal estimated bill savings breakdown mapped to electricity bill language" loading="lazy">
+            <figcaption>Estimated bill savings — broken down in the same language as an electricity bill</figcaption>
           </figure>
         </div>
+        <figure>
+          <img src="images/projects/zelora-carbonsavings.png" alt="Zelora carbon savings view showing environmental impact alongside financial return" loading="lazy">
+          <figcaption>Zelora — carbon savings as a secondary layer, contextualised for everyday understanding</figcaption>
+        </figure>
 
         <h3>White-label as a first-class design constraint</h3>
-        <p>Zelora and Enreal have distinct brand identities — Zelora's palette is warm and Bunnings-aligned; Enreal's is clean and teal. Designing for both from the outset meant treating brand as a variable from the beginning of the component system, not something applied after the fact. The white-label architecture separates brand tokens — colour, typography, logo — from layout and interaction logic, so a brand swap produces a coherent, branded experience across every screen without touching the underlying structure. The same approach extended to feature architecture: components and flows were built to be added to, so the team could continue shipping without reworking the foundation.</p>
+        <p>Zelora and Enreal have distinct brand identities — Zelora's palette is warm and Bunnings-aligned; Enreal's is clean and teal. Designing for both from the outset, I treated brand as a variable from the start of the component system, not something applied after the fact. I structured the white-label architecture to separate brand tokens — colour, typography, logo — from layout and interaction logic, so a brand swap produces a coherent experience across every screen without touching the underlying structure. The same approach extended to feature architecture: I built components and flows to be added to, so the team could continue shipping new features without reworking the foundation.</p>
         <div class="figure-row">
           <figure>
             <img src="images/projects/zelora-home.png" alt="Zelora home screen with warm Bunnings brand palette" loading="lazy">
@@ -282,10 +294,6 @@
             <figcaption>Enreal — clean teal palette for a home electrification audience</figcaption>
           </figure>
         </div>
-        <figure>
-          <img src="images/projects/wireframehome2.png" alt="Feature architecture wireframe showing extensible component and flow structure" loading="lazy">
-          <figcaption>Feature architecture — components and flows structured to be extended without reworking the core</figcaption>
-        </figure>
       </div>
 
       <div id="web-portal" class="case-section reveal">
@@ -308,11 +316,45 @@
       <div id="outcome" class="case-section reveal">
         <div class="case-section-label">Outcome</div>
         <h2>Launched across two brands, with a foundation built to grow</h2>
-        <p>Zelora and Enreal launched on iOS with the web portal available at the same time. The underlying design system — components, tokens, layout logic — was structured to be extended, and the team continued shipping new features on top of the same foundations after the initial release. The white-label architecture held up across both brands without diverging into separate codebases or design files.</p>
+        <p>Zelora and Enreal launched on iOS and Android with the web portal available at the same time. The underlying design system — components, tokens, layout logic — was structured to be extended, and the team continued shipping new features on top of the same foundations after the initial release. The white-label architecture held up across both brands without diverging into separate codebases or design files.</p>
         <figure>
           <img src="images/projects/zelora-login.png" alt="Zelora app login screen live on the App Store" loading="lazy">
-          <figcaption>Zelora — live on the App Store</figcaption>
+          <figcaption>Zelora — live on iOS and Android</figcaption>
         </figure>
+        <div class="store-link-group">
+          <div class="store-link-group-label">Zelora</div>
+          <div class="store-links">
+            <a href="https://zelora.com.au" target="_blank" rel="noopener" class="store-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+            <a href="https://zelora.com.au" target="_blank" rel="noopener" class="store-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.99.14l12.47-7.18-2.89-2.89zm15.67-9.47L16.1 12.5l2.75-2.75-12.32-7.1c-.31-.18-.65-.21-.96-.12zM2.12 2.27C2.05 2.5 2 2.75 2 3.02v17.96c0 .27.05.52.13.74l.08.07 10.06-10.06v-.23zm9.4 9.41 2.58-2.58 2.89 2.89-2.58 1.48z"/></svg>
+              Google Play
+            </a>
+            <a href="https://zelora.com.au" target="_blank" rel="noopener" class="store-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              zelora.com.au
+            </a>
+          </div>
+        </div>
+        <div class="store-link-group" style="margin-top:24px;">
+          <div class="store-link-group-label">Enreal</div>
+          <div class="store-links">
+            <a href="https://enreal.com.au" target="_blank" rel="noopener" class="store-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+            <a href="https://enreal.com.au" target="_blank" rel="noopener" class="store-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.99.14l12.47-7.18-2.89-2.89zm15.67-9.47L16.1 12.5l2.75-2.75-12.32-7.1c-.31-.18-.65-.21-.96-.12zM2.12 2.27C2.05 2.5 2 2.75 2 3.02v17.96c0 .27.05.52.13.74l.08.07 10.06-10.06v-.23zm9.4 9.41 2.58-2.58 2.89 2.89-2.58 1.48z"/></svg>
+              Google Play
+            </a>
+            <a href="https://enreal.com.au" target="_blank" rel="noopener" class="store-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              enreal.com.au
+            </a>
+          </div>
+        </div>
       </div>
 
     </div>
