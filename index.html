@@ -388,6 +388,15 @@
       transform: rotate(45deg);
     }
 
+    /* ── EXPERTISE ── */
+    #expertise { padding: 80px var(--pad); background: var(--periwinkle-pale); }
+    .expertise-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 40px; }
+    .expertise-card { background: var(--white); border-radius: var(--r); padding: 32px 28px; border: 1px solid var(--border); display: flex; flex-direction: column; }
+    .expertise-card-domain { font-family: var(--serif); font-size: clamp(18px, 1.8vw, 22px); font-weight: 400; letter-spacing: -0.01em; margin-bottom: 14px; line-height: 1.2; }
+    .expertise-card-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.75; margin-bottom: 24px; flex: 1; }
+    .expertise-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .expertise-card-tag { font-size: 0.72rem; font-weight: 600; color: var(--periwinkle-dark); background: var(--periwinkle-light); padding: 4px 10px; border-radius: 100px; }
+
     /* ── ABOUT ── */
     #about {
       padding: 80px var(--pad);
@@ -536,6 +545,7 @@
       .hero-right { display: none; }
       .intro-strip-inner { flex-direction: column; }
       .work-grid { grid-template-columns: 1fr; }
+      .expertise-grid { grid-template-columns: 1fr; }
       .work-card.wide { grid-column: 1; }
       .about-grid { grid-template-columns: 1fr; gap: 48px; }
       .exp-item { grid-template-columns: 1fr; gap: 6px; }
@@ -652,6 +662,42 @@
             </div>
           </div>
         </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section id="expertise">
+    <div class="section-wrap">
+      <h2 class="section-title reveal">Where I've gone deep</h2>
+      <div class="expertise-grid">
+
+        <div class="expertise-card reveal">
+          <div class="expertise-card-domain">Consumer energy apps</div>
+          <p class="expertise-card-desc">Designing for homeowners making sense of solar, battery storage, and home energy data — from real-time dashboards to savings experiences that make the investment feel tangible.</p>
+          <div class="expertise-card-tags">
+            <span class="expertise-card-tag">Zelora</span>
+            <span class="expertise-card-tag">Enreal</span>
+            <span class="expertise-card-tag">Pooled</span>
+          </div>
+        </div>
+
+        <div class="expertise-card reveal">
+          <div class="expertise-card-domain">EV charging</div>
+          <p class="expertise-card-desc">Bringing Jet Charge's energy management strategy to life through their existing product suite — translating business direction into product design within an established ecosystem.</p>
+          <div class="expertise-card-tags">
+            <span class="expertise-card-tag">Jet Charge</span>
+          </div>
+        </div>
+
+        <div class="expertise-card reveal">
+          <div class="expertise-card-domain">Enterprise energy systems</div>
+          <p class="expertise-card-desc">B2B dashboards and DERMS platforms for energy operators managing distributed resources — complex data, professional users, high-stakes decisions.</p>
+          <div class="expertise-card-tags">
+            <span class="expertise-card-tag">Evergen DERMS</span>
+          </div>
+        </div>
 
       </div>
     </div>
