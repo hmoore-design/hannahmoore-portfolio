@@ -104,15 +104,20 @@
     .case-section:last-child { margin-bottom: 0; }
     .case-section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--periwinkle-dark); background: var(--periwinkle-pale); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
     .case-section h2 { font-family: var(--serif); font-size: clamp(22px, 2.5vw, 30px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .case-section h3 { font-family: var(--serif); font-size: clamp(17px, 1.8vw, 21px); font-weight: 400; letter-spacing: -0.01em; margin: 52px 0 10px; color: var(--ink); }
     .case-section p { color: var(--ink-mid); line-height: 1.85; margin-bottom: 16px; }
     .case-section p:last-child { margin-bottom: 0; }
     .case-section strong { color: var(--ink); font-weight: 600; }
 
-    .feature-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
-    .feature-pill { background: var(--periwinkle-light); color: var(--periwinkle-dark); font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 100px; }
-
     figure { margin: 40px 0; }
-    figure img { width: 100%; height: auto; border-radius: var(--r); display: block; border: 1px solid var(--border); }
+    figure img { width: 100%; height: auto; border-radius: var(--r); display: block; border: 1px solid var(--border); cursor: zoom-in; }
+
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(15,15,25,0.88); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 24px; }
+    .lightbox.open { display: flex; }
+    .lightbox-img { max-width: 90vw; max-height: 90vh; width: auto; height: auto; border-radius: 12px; box-shadow: 0 40px 100px rgba(0,0,0,0.5); object-fit: contain; cursor: default; }
+    .lightbox-close { position: absolute; top: 20px; right: 20px; width: 44px; height: 44px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-radius: 50%; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.18s; }
+    .lightbox-close:hover { background: rgba(255,255,255,0.22); }
     figcaption { font-size: 0.78rem; color: var(--ink-light); margin-top: 10px; }
 
     .figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
@@ -187,7 +192,7 @@
         <p class="case-tagline">Designing a native iOS widget for Discord — bringing key social features to the home screen without opening the app.</p>
       </div>
       <div class="case-hero-image">
-        <img src="images/projects/discord-hifi.png" alt="Discord iOS Widget high-fidelity designs">
+        <img src="images/projects/discord-overview.png" alt="Discord iOS widget concepts across multiple sizes">
       </div>
     </div>
   </div>
@@ -200,8 +205,7 @@
       <div class="sidebar-label">Contents</div>
       <ul class="sidebar-nav">
         <li><a href="#overview">Overview</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#design">Design</a></li>
+        <li><a href="#decisions">Key decisions</a></li>
         <li><a href="#outcome">Outcome</a></li>
       </ul>
     </aside>
@@ -211,67 +215,57 @@
 
       <div id="overview" class="case-section reveal">
         <div class="case-section-label">Overview</div>
-        <h2>Closing the gap on iOS widget engagement</h2>
-        <p>With the current industry push for iOS products to include widgets, Discord is missing out on a share of user engagement and staying on trend with other social media apps. Widgets improve overall app functionality and save users time — giving them instant access to key features without opening the app.</p>
-        <p>With over 150 million active monthly users, Discord has primarily targeted adults and gamers and has become a core social media choice since launching in 2015. This project explores what a thoughtful Discord widget could look like.</p>
+        <h2>Designing a widget that could have come from Discord's own team</h2>
+        <p>Discord had over 150 million monthly active users and no iOS widget. This was a personal project, built after leaving Creativemass — I've used Discord for years and genuinely love the product. The goal wasn't just to design a widget; it was to design one that could plausibly have come from Discord's own team. That was the hardest constraint: believability.</p>
         <figure>
-          <img src="images/projects/discord-overview.png" alt="Discord iOS Widget design overview" loading="lazy">
-          <figcaption>Discord iOS widget concepts across multiple sizes</figcaption>
+          <img src="images/projects/discord-research.png" alt="Discord widget information architecture and feature research" loading="lazy">
+          <figcaption>Information architecture and feature research</figcaption>
         </figure>
       </div>
 
-      <div id="process" class="case-section reveal">
-        <div class="case-section-label">Process</div>
-        <h2>Research, features, and iOS guidelines</h2>
-        <p>Widgets by design need to be concise, summarising the core features of an app by providing instant access to meaningful content. Content and function are consistent across iOS widget sizes, though different visualisations are used depending on size selected.</p>
-        <p>Along with information architecture mapping, product research, and user interviews, the key features selected for a Discord widget were:</p>
-        <div class="feature-pills">
-          <span class="feature-pill">Account activity status</span>
-          <span class="feature-pill">Friends list access</span>
-          <span class="feature-pill">Search functionality</span>
-          <span class="feature-pill">Direct message notifications</span>
-          <span class="feature-pill">Server-wide notifications</span>
-        </div>
-        <p>Defining the widget's features allows content to be shared dynamically throughout the day, keeping it relevant and maintaining a prominent position on a user's device.</p>
-        <figure>
-          <img src="images/projects/discord-research.png" alt="Discord widget information architecture and research" loading="lazy">
-          <figcaption>Information architecture mapping and feature research</figcaption>
-        </figure>
-      </div>
+      <div id="decisions" class="case-section reveal">
+        <div class="case-section-label">Key decisions</div>
+        <h2>Two decisions that shaped the design</h2>
 
-      <div id="design" class="case-section reveal">
-        <div class="case-section-label">Design</div>
-        <h2>From sketches to high-fidelity</h2>
-        <p>Research and user data concluded that widgets need variety in available designs, even within the same size. Variety allows users to customise and personalise the widget better for their needs.</p>
-        <p>Using the current iOS component library for sizing and UI specifications, the ideation process moved from sketches to low-fidelity wireframes. User journeys were mapped to different widget designs and refined further through testing.</p>
+        <h3>Designing around where users already spend their time</h3>
+        <p>Most Discord users don't browse — they return. They go back to the same DM thread, the same server, the same channel. Feature selection started there. The five features — account status, friends access, direct messages, server notifications, and search — map to those habitual entry points. Five also worked well within the space requirements across widget sizes, giving enough density without overcrowding the smallest formats.</p>
         <figure>
-          <img src="images/projects/discord-wireframes.png" alt="Discord widget wireframes and user journey mapping" loading="lazy">
-          <figcaption>Low-fidelity wireframes and user journey mapping</figcaption>
+          <img src="images/projects/discord-wireframes.png" alt="Discord widget wireframes mapping features to user entry points" loading="lazy">
+          <figcaption>Wireframes — mapping features to the spaces users return to most</figcaption>
         </figure>
+
+        <h3>Building flexibility in from the start</h3>
+        <p>Widgets need to work across three sizes, in dark and light mode, with different content priorities at each size. Rather than designing one layout and adapting it, I treated size and mode as variables from the start — designing a system flexible by default. Each format feels considered for its dimensions rather than squeezed.</p>
         <div class="figure-row">
           <figure>
-            <img src="images/projects/discord-exploration.png" alt="Discord widget design exploration" loading="lazy">
-            <figcaption>Design exploration across widget sizes</figcaption>
+            <img src="images/projects/discord-exploration.png" alt="Discord widget design exploration across sizes" loading="lazy">
+            <figcaption>Design exploration across all three widget sizes</figcaption>
           </figure>
           <figure>
-            <img src="images/projects/discord-hifi.png" alt="Discord widget high-fidelity dark and light mode" loading="lazy">
-            <figcaption>High-fidelity in dark and light mode</figcaption>
+            <img src="images/projects/discord-hifi.png" alt="Discord widget high-fidelity in dark and light mode" loading="lazy">
+            <figcaption>High-fidelity — dark and light mode</figcaption>
           </figure>
         </div>
       </div>
 
       <div id="outcome" class="case-section reveal">
         <div class="case-section-label">Outcome</div>
-        <h2>A handover-ready, customisable design</h2>
-        <p>Utilising Discord's branding guidelines, dark and light mode high-fidelity prototypes were built after running user and heuristic testing. Users can pick between several options to best suit their device and customise the focus of the widget design.</p>
-        <p>Due to the highly customisable elements of the design, an annotated design file and template was prepared for handover, making it straightforward for engineers to implement.</p>
+        <h2>Handover-ready, with room to grow</h2>
+        <p>The final designs are annotated and templated — the variation system is straightforward for engineers to build on. If I were to revisit this now, I'd push the personality further. Discord has evolved with custom themes, profile banners, and more visual expression since I built this. There's room for a widget that's genuinely expressive, not just functional.</p>
         <figure>
-          <img src="images/projects/discord-final.png" alt="Discord widget final designs and annotation" loading="lazy">
-          <figcaption>Final annotated designs ready for developer handover</figcaption>
+          <img src="images/projects/discord-final.png" alt="Discord widget final annotated designs" loading="lazy">
+          <figcaption>Final designs — annotated and ready for handover</figcaption>
         </figure>
       </div>
 
     </div>
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg>
+    </button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
   </div>
 
   <div class="next-wrap">
@@ -296,6 +290,16 @@
   </footer>
 
   <script>
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const openLightbox = (src, alt) => { lightboxImg.src = src; lightboxImg.alt = alt; lightbox.classList.add('open'); document.body.style.overflow = 'hidden'; };
+    const closeLightbox = () => { lightbox.classList.remove('open'); document.body.style.overflow = ''; };
+    document.querySelectorAll('figure img').forEach(img => img.addEventListener('click', () => openLightbox(img.src, img.alt)));
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
     // Reveal on scroll
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
