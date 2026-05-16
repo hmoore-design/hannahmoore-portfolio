@@ -118,6 +118,8 @@
 
     .figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
     .figure-row figure { margin: 0; }
+    .figure-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 40px 0; }
+    .figure-row-3 figure { margin: 0; }
 
     /* NEXT */
     .next-wrap { border-top: 1px solid var(--border); }
@@ -162,6 +164,7 @@
       .sidebar-nav a { background: var(--periwinkle-pale); padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; }
       .sidebar-nav a::before { display: none; }
       .figure-row { grid-template-columns: 1fr; }
+      .figure-row-3 { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .nav-links li:not(:last-child) { display: none; }
@@ -290,20 +293,20 @@
         <h3>Making the financial return visible, every day</h3>
         <p>For homeowners who have spent $10,000–$20,000 on a solar and battery system, the most important question the app can answer is: is this paying off? I designed the savings experience to lead with financial return — bill savings, feed-in earnings, and avoided energy costs — broken down in the same language as an electricity bill, so users can directly compare what they see in the app to what arrives in their inbox.</p>
         <p>I chose a seven-day savings view over a single-day figure deliberately. One day of data is easily skewed by weather or an unusual usage spike; seven days gives users a realistic and honest picture of what their system is actually earning them, and builds confidence in the investment over time. Carbon savings are presented as a secondary layer — available for users who want to connect their financial return to a broader environmental impact.</p>
-        <div class="figure-row">
+        <div class="figure-row-3">
           <figure>
             <img src="images/projects/enreal-savings.png" alt="Enreal savings screen showing financial returns from solar and battery" loading="lazy">
             <figcaption>Enreal — savings overview, leading with financial return</figcaption>
           </figure>
           <figure>
             <img src="images/projects/enreal-savings-estimated-bill-savings.png" alt="Enreal estimated bill savings breakdown mapped to electricity bill language" loading="lazy">
-            <figcaption>Estimated bill savings — broken down in the same language as an electricity bill</figcaption>
+            <figcaption>Estimated bill savings — broken down in electricity bill language</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/zelora-carbonsavings.png" alt="Zelora carbon savings view showing environmental impact alongside financial return" loading="lazy">
+            <figcaption>Zelora — carbon savings as a secondary layer</figcaption>
           </figure>
         </div>
-        <figure>
-          <img src="images/projects/zelora-carbonsavings.png" alt="Zelora carbon savings view showing environmental impact alongside financial return" loading="lazy">
-          <figcaption>Zelora — carbon savings as a secondary layer, contextualised for everyday understanding</figcaption>
-        </figure>
 
         <h3>White-label as a first-class design constraint</h3>
         <p>Zelora and Enreal have distinct brand identities — Zelora's palette is warm and Bunnings-aligned; Enreal's is clean and teal. Designing for both from the outset, I treated brand as a variable from the start of the component system, not something applied after the fact. I structured the white-label architecture to separate brand tokens — colour, typography, logo — from layout and interaction logic, so a brand swap produces a coherent experience across every screen without touching the underlying structure. The same approach extended to feature architecture: I built components and flows to be added to, so the team could continue shipping new features without reworking the foundation.</p>
@@ -349,10 +352,6 @@
         <div class="case-section-label">Outcome</div>
         <h2>Launched across two brands, with a foundation built to grow</h2>
         <p>Zelora and Enreal launched on iOS and Android with the web portal available at the same time. The underlying design system — components, tokens, layout logic — was structured to be extended, and the team continued shipping new features on top of the same foundations after the initial release. The white-label architecture held up across both brands without diverging into separate codebases or design files.</p>
-        <figure>
-          <img src="images/projects/zelora-login.png" alt="Zelora app login screen live on the App Store" loading="lazy">
-          <figcaption>Zelora — live on iOS and Android</figcaption>
-        </figure>
         <div class="store-link-group">
           <div class="store-link-group-label">Zelora</div>
           <div class="store-links">
