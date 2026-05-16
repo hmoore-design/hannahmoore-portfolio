@@ -562,7 +562,6 @@
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 48px; }
       .hero-right { display: none; }
-      .intro-strip-inner { flex-direction: column; }
       .work-grid { grid-template-columns: 1fr; }
       .expertise-grid { grid-template-columns: 1fr; }
       .work-card.wide { grid-column: 1; }
@@ -571,7 +570,9 @@
       .exp-item > :last-child { justify-self: start; }
     }
     @media (max-width: 600px) {
-      .nav-links li:not(:last-child) { display: none; }
+      .nav-links { gap: 4px; }
+      .work-card-thumb { padding: 16px 16px 0; }
+      .work-card-inner { padding: 20px 16px 16px; }
     }
   </style>
 </head>
