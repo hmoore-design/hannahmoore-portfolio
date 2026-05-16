@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Zelora and Enreal — designing a white-label consumer energy app for solar and battery owners. Hannah Moore, Product/UX Designer.">
+  <title>Zelora &amp; Enreal — Hannah Moore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --periwinkle: #bdc0ff;
+      --periwinkle-light: #e0e1ff;
+      --periwinkle-pale: #f0f0ff;
+      --periwinkle-deep: #8a8edd;
+      --periwinkle-dark: #5a5ea8;
+      --white: #FAFAFA;
+      --ink: #1e1e2e;
+      --ink-mid: #5c5c7a;
+      --ink-light: #9898b2;
+      --border: rgba(30,30,46,0.08);
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Nunito', sans-serif;
+      --pad: clamp(20px, 5vw, 80px);
+      --r: 20px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+
+    /* NAV */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px var(--pad); position: sticky; top: 0; z-index: 100; background: rgba(250,250,250,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 28px; width: auto; }
+    .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; padding: 7px 15px; border-radius: 100px; transition: background 0.18s, color 0.18s; }
+    .nav-links a:hover { background: var(--periwinkle-light); color: var(--ink); }
+    .nav-links .cta { background: var(--periwinkle); color: var(--ink) !important; font-weight: 600; }
+    .nav-links .cta:hover { background: var(--periwinkle-deep); color: #fff !important; }
+
+    /* HERO */
+    .case-hero { background: var(--periwinkle-pale); padding: 64px var(--pad) 0; }
+    .case-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: end;
+    }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; margin-bottom: 40px; transition: color 0.2s; }
+    .back-link:hover { color: var(--periwinkle-dark); }
+    .case-meta { display: flex; gap: 32px; margin-bottom: 28px; flex-wrap: wrap; }
+    .case-meta-item { }
+    .case-meta-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 3px; }
+    .case-meta-value { font-size: 0.88rem; color: var(--ink-mid); font-weight: 500; }
+    .case-title { font-family: var(--serif); font-size: clamp(32px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; margin-bottom: 16px; }
+    .case-tagline { font-size: 1rem; color: var(--ink-mid); line-height: 1.75; padding-bottom: 48px; }
+    .case-hero-image { align-self: end; }
+    .case-hero-image img { width: 100%; height: auto; display: block; border-radius: var(--r) var(--r) 0 0; border: 1px solid var(--border); border-bottom: none; }
+
+    /* LAYOUT */
+    .case-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 72px;
+      padding: 72px var(--pad) 96px;
+      align-items: start;
+    }
+
+    /* SIDEBAR */
+    .case-sidebar { position: sticky; top: 90px; }
+    .sidebar-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 16px; }
+    .sidebar-nav { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      text-decoration: none;
+      padding: 7px 0;
+      transition: color 0.2s;
+    }
+    .sidebar-nav a::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .sidebar-nav a:hover { color: var(--ink-mid); }
+    .sidebar-nav a.active { color: var(--periwinkle-dark); font-weight: 600; }
+    .sidebar-nav a.active::before { transform: scale(1.5); }
+
+    /* CONTENT */
+    .case-content { min-width: 0; }
+    .case-section { margin-bottom: 72px; scroll-margin-top: 100px; }
+    .case-section:last-child { margin-bottom: 0; }
+    .case-section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--periwinkle-dark); background: var(--periwinkle-pale); padding: 4px 12px; border-radius: 100px; margin-bottom: 14px; }
+    .case-section h2 { font-family: var(--serif); font-size: clamp(22px, 2.5vw, 30px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .case-section h3 { font-family: var(--serif); font-size: clamp(17px, 1.8vw, 21px); font-weight: 400; letter-spacing: -0.01em; margin: 52px 0 10px; color: var(--ink); }
+    .case-section p { color: var(--ink-mid); line-height: 1.85; margin-bottom: 16px; }
+    .case-section p:last-child { margin-bottom: 0; }
+    .case-section strong { color: var(--ink); font-weight: 600; }
+
+    .feature-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+    .feature-pill { background: var(--periwinkle-light); color: var(--periwinkle-dark); font-size: 0.8rem; font-weight: 600; padding: 6px 14px; border-radius: 100px; }
+
+    figure { margin: 40px 0; }
+    figure img { width: 100%; height: auto; border-radius: var(--r); display: block; border: 1px solid var(--border); }
+    figcaption { font-size: 0.78rem; color: var(--ink-light); margin-top: 10px; }
+
+    .figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+    .figure-row figure { margin: 0; }
+
+    /* NEXT */
+    .next-wrap { border-top: 1px solid var(--border); }
+    .next-project { display: flex; align-items: center; justify-content: space-between; padding: 56px var(--pad); max-width: 1200px; margin: 0 auto; text-decoration: none; color: inherit; transition: background 0.2s; gap: 24px; }
+    .next-project:hover { background: var(--periwinkle-pale); }
+    .next-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
+    .next-title { font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); letter-spacing: -0.02em; }
+    .next-arrow { width: 52px; height: 52px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
+    .next-project:hover .next-arrow { background: var(--periwinkle); border-color: var(--periwinkle); }
+
+    footer { padding: 22px var(--pad); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--ink-light); flex-wrap: wrap; gap: 10px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .case-hero-inner { grid-template-columns: 1fr; }
+      .case-hero-image { display: none; }
+      .case-layout { grid-template-columns: 1fr; gap: 0; padding-top: 48px; }
+      .case-sidebar { position: static; margin-bottom: 48px; }
+      .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+      .sidebar-nav a { background: var(--periwinkle-pale); padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; }
+      .sidebar-nav a::before { display: none; }
+      .figure-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links li:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo/hannah-moore-logo.svg" alt="Hannah Moore" onerror="this.style.display='none'">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="https://tally.so/r/Xx8JvO" class="cta">Say hello 👋</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="case-hero">
+    <div class="case-hero-inner">
+      <div class="case-hero-left">
+        <a href="index.html#work" class="back-link">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 7H3M7 11L3 7l4-4"/></svg>
+          All work
+        </a>
+        <div class="case-meta">
+          <div class="case-meta-item">
+            <div class="case-meta-label">Discipline</div>
+            <div class="case-meta-value">Product Design · UX/UI</div>
+          </div>
+          <div class="case-meta-item">
+            <div class="case-meta-label">Platform</div>
+            <div class="case-meta-value">iOS · Web</div>
+          </div>
+          <div class="case-meta-item">
+            <div class="case-meta-label">Company</div>
+            <div class="case-meta-value">Evergen</div>
+          </div>
+        </div>
+        <h1 class="case-title">Zelora &amp; Enreal</h1>
+        <p class="case-tagline">Designing a consumer energy app — and the white-label system behind it — for two brands and thousands of solar and battery owners.</p>
+      </div>
+      <div class="case-hero-image">
+        <img src="images/projects/zelora-home.png" alt="Zelora home screen showing energy status and solar generation">
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="case-layout">
+
+    <!-- Sidebar -->
+    <aside class="case-sidebar">
+      <div class="sidebar-label">Contents</div>
+      <ul class="sidebar-nav">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#decisions">Key decisions</a></li>
+        <li><a href="#web-portal">Web portal</a></li>
+        <li><a href="#outcome">Outcome</a></li>
+      </ul>
+    </aside>
+
+    <!-- Content -->
+    <div class="case-content">
+
+      <div id="overview" class="case-section reveal">
+        <div class="case-section-label">Overview</div>
+        <h2>One product, two brands, thousands of homes</h2>
+        <p>Zelora and Enreal are consumer apps that give solar and battery owners visibility over their home energy — generation, consumption, savings, carbon. I designed the full product experience at Evergen: the UX and UI for both apps, and the white-label system that lets a single product serve two distinct brands.</p>
+        <p>Zelora (backed by Bunnings) targets homeowners with solar and battery systems. Enreal serves home electrification customers. Both needed to make real-time energy data feel useful and motivating to everyday people — not engineers — without losing the depth that engaged users want.</p>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/designsprintwireframe1.png" alt="Design sprint wireframe exploring energy data structure" loading="lazy">
+            <figcaption>Design sprint — exploring how to structure energy data for non-technical users</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/designsprintwireframe2.png" alt="Early wireframe testing navigation and information hierarchy" loading="lazy">
+            <figcaption>Early wireframe — testing navigation and information hierarchy</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div id="decisions" class="case-section reveal">
+        <div class="case-section-label">Key Decisions</div>
+        <h2>Four decisions that shaped the product</h2>
+
+        <h3>Anchoring the home screen in a house</h3>
+        <p>Early explorations used spider diagrams and radial charts — technically accurate, but they required interpretation. We landed on a house graphic as the centrepiece of the home screen: an immediately recognisable metaphor that lets users read their energy status at a glance without needing to decode a visualisation.</p>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/wireframehome1.png" alt="Early wireframe exploration using radial spider diagram" loading="lazy">
+            <figcaption>Early exploration — spider diagram approach for energy data</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/enreal-house.png" alt="Enreal home screen with house graphic showing energy flow" loading="lazy">
+            <figcaption>Settled direction — the house as the central metaphor</figcaption>
+          </figure>
+        </div>
+
+        <h3>One screen, two modes</h3>
+        <p>Most users want to know their solar is working and they're saving money. Some want to go deep. Rather than building a separate advanced section — or watering everything down — we designed a toggle between a simplified summary view and a detailed chart view on the same screen. Users choose their own level of engagement.</p>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/enreal-house.png" alt="Simple mode — at-a-glance energy status with house graphic" loading="lazy">
+            <figcaption>Simple mode — at-a-glance energy status</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/enreal-homechart.png" alt="Complex mode — detailed energy flow chart with live data" loading="lazy">
+            <figcaption>Complex mode — detailed energy flow and live data</figcaption>
+          </figure>
+        </div>
+
+        <h3>Making savings feel earned, not abstract</h3>
+        <p>Showing a kilowatt-hour figure next to a dollar amount doesn't land for most people. We invested heavily in the savings screen — breaking savings down into terms that felt personal and concrete, and surfacing carbon impact in a way users could actually relate to their daily behaviour.</p>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/enreal-savings.png" alt="Enreal savings screen showing estimated bill savings breakdown" loading="lazy">
+            <figcaption>Enreal — savings breakdown by source</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/zelora-carbonsavings.png" alt="Zelora carbon savings view showing environmental impact" loading="lazy">
+            <figcaption>Zelora — carbon savings personalised to the household</figcaption>
+          </figure>
+        </div>
+
+        <h3>White-label as a structural constraint</h3>
+        <p>Delivering the same product under two brand identities isn't cosmetic work — it forces you to separate structure, interaction, and skin from the start. I built the component system so that a colour swap and logo change would produce a coherent brand experience, not a recoloured UI. The underlying architecture was also designed to be extended, so the team could continue building new features without touching the core layout logic.</p>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/zelora-home.png" alt="Zelora home screen with Bunnings brand palette" loading="lazy">
+            <figcaption>Zelora — Bunnings brand palette, orange and warm</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/enreal-house.png" alt="Enreal home screen with teal brand palette" loading="lazy">
+            <figcaption>Enreal — home electrification brand, teal and clean</figcaption>
+          </figure>
+        </div>
+        <figure>
+          <img src="images/projects/wireframehome2.png" alt="Feature architecture wireframe showing extensible component structure" loading="lazy">
+          <figcaption>Feature architecture — built so new flows could be added without reworking the core</figcaption>
+        </figure>
+      </div>
+
+      <div id="web-portal" class="case-section reveal">
+        <div class="case-section-label">Web Portal</div>
+        <h2>A desktop companion for deeper analysis</h2>
+        <p>The web portal targets the same user as the app — a homeowner who wants to look at their energy data at length. The desktop dashboard uses a more technical lens: historical charts, seven-day energy views, and detailed breakdowns that don't fit comfortably on a phone screen.</p>
+        <p>Released alongside the mobile app, the portal gives users a consistent experience across devices without duplicating the app's core job. The app is the daily check-in; the portal is the deeper dive when you want to understand what's actually happening with your system.</p>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/enrealweb-home.png" alt="Enreal web portal home dashboard" loading="lazy">
+            <figcaption>Enreal web portal — home dashboard overview</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/enrealweb-energysevendays.png" alt="Enreal web portal seven-day energy chart" loading="lazy">
+            <figcaption>Seven-day energy view — designed for the desktop context</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div id="outcome" class="case-section reveal">
+        <div class="case-section-label">Outcome</div>
+        <h2>Shipped across two brands — and what I'd do differently</h2>
+        <p>Zelora and Enreal launched within the same six-month window that also included the Pooled by Poolwerx app. Delivering three consumer energy products in parallel was intense — by the time they shipped, I was ready to move on, and I did.</p>
+        <p>What I'm proud of is the foundation. The design system and component architecture were solid enough that the team shipped roughly six months of additional features after my departure, without a major rework of the underlying structure. That's how I'd measure the work — not by what launched, but by what it enabled.</p>
+        <figure>
+          <img src="images/projects/zelora-login.png" alt="Zelora app login screen on the App Store" loading="lazy">
+          <figcaption>Zelora — live on the App Store</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="next-wrap">
+    <a href="discord-ios-widget.html" class="next-project">
+      <div>
+        <div class="next-label">Next project</div>
+        <div class="next-title">Discord iOS Widget</div>
+      </div>
+      <div class="next-arrow">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 14.5L14.5 3.5M14.5 3.5H7.5M14.5 3.5V10.5"/></svg>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Hannah Moore</span>
+    <span>Melbourne, Australia</span>
+    <a href="https://www.linkedin.com/in/hannah-moore-b79ab0164/" target="_blank" rel="noopener" style="color:inherit;display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:0.78rem;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Sidebar active section tracking
+    const sections = document.querySelectorAll('.case-section[id]');
+    const navLinks = document.querySelectorAll('.sidebar-nav a');
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-10% 0px -60% 0px' });
+    sections.forEach(s => sectionObserver.observe(s));
+  </script>
+
+</body>
+</html>
