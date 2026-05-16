@@ -199,7 +199,7 @@
         <p class="case-tagline">A smart pool management app designed around one question: is my pool ready for the weekend?</p>
       </div>
       <div class="case-hero-image">
-        <img src="images/projects/pooledhome.png" alt="Pooled by Poolwerx home screen showing pool health status">
+        <img src="images/projects/pooledhero.png" alt="Pooled by Poolwerx app screens showing home, energy and water views">
       </div>
     </div>
   </div>
@@ -245,7 +245,7 @@
 
       <div id="decisions" class="case-section reveal">
         <div class="case-section-label">Key Decisions</div>
-        <h2>Four decisions that shaped the product</h2>
+        <h2>The decisions that shaped the product</h2>
 
         <h3>Urgency before everything else</h3>
         <p>The home screen leads with status, not metrics. I designed a three-tier system to communicate pool health at a glance: <strong>Action Required</strong> (coral), <strong>Out of Range</strong> (orange), <strong>Acceptable</strong> (teal). Each reading on the home screen carries one of these states — the moment you open the app, you know whether your pool needs attention before you read a single number.</p>
@@ -264,17 +264,27 @@
         <h3>Tolerances built around each pool, not a generic standard</h3>
         <p>Pool chemistry isn't universal. What's an acceptable pH in one pool may be out of range for another, depending on equipment, pool size, water type, and local conditions. Rather than showing static thresholds, the Water tab uses coloured range bars to show where each reading sits within the tolerance band set for that specific pool.</p>
         <p>This required the backend to surface per-pool tolerances rather than raw sensor values — a more technically complex approach — but the right one. Telling a pool owner their pH is 7.2 means nothing without context. Showing them that 7.2 sits comfortably within their pool's acceptable range gives them the actual answer they came for.</p>
-        <figure>
-          <img src="images/projects/pooledwater.png" alt="Water tab showing pH, ORP, Salinity and Temperature with coloured tolerance range bars" loading="lazy">
-          <figcaption>Water tab — range bars calibrated to each pool's individual tolerances</figcaption>
-        </figure>
+        <div class="figure-row">
+          <figure>
+            <img src="images/projects/pooledwater.png" alt="Water tab showing pH, ORP, Salinity and Temperature with coloured tolerance range bars" loading="lazy">
+            <figcaption>Water tab — range bars calibrated to each pool's individual tolerances</figcaption>
+          </figure>
+          <figure>
+            <img src="images/projects/pooledtemperature.png" alt="Temperature detail screen showing monthly chart and current water temperature reading" loading="lazy">
+            <figcaption>Temperature detail — the same tolerance pattern applied to water temperature</figcaption>
+          </figure>
+        </div>
 
         <h3>Keeping the language of the trade</h3>
         <p>Early in the project there was an assumption that we should simplify the vocabulary — translate ORP into "sanitisation level," replace "Chlorinator" with something more generic. User interviews pushed back quickly. Pool owners and Poolwerx technicians use these terms fluently. They're on the labels of the chemicals they buy, in the service manuals, in every conversation they've had with a pool tech. Simplifying the language would have made the app feel condescending and harder to map to the physical equipment in their backyard.</p>
-        <p>The technical vocabulary stayed. Where a term genuinely needed context, I added a brief inline explanation — "ORP (Oxidation-reduction potential) measures the ability of your pool to cleanse itself" — rather than replacing the term itself.</p>
+        <p>The technical vocabulary stayed. Where a term needed context, I added a brief inline explanation — "ORP (Oxidation-reduction potential) measures the ability of your pool to cleanse itself" — rather than replacing the term itself.</p>
+
+        <h3>Bringing energy visibility into pool management</h3>
+        <p>The Energy tab was a new feature — not in the original app. Two years designing Zelora and Enreal had shown me how effectively device-level energy breakdowns could change the way people understood their costs. Pool equipment runs on a schedule, and that schedule has a real cost. Adding a weekly breakdown by device gave pool owners visibility they'd never had before: what is actually running my pool, and what is it costing me?</p>
+        <p>The structure — device names, a 7-day rolling view, energy by time period — was modelled on patterns I knew worked from the energy apps. Familiar enough to be immediately legible, specific enough to be genuinely useful.</p>
         <figure>
-          <img src="images/projects/pooledenergy.png" alt="Energy tab showing Filter Pump, Chlorinator and Sweep with technical device names" loading="lazy">
-          <figcaption>Energy — Filter Pump, Chlorinator, Sweep. The names people already know.</figcaption>
+          <img src="images/projects/pooledenergy.png" alt="Energy tab showing weekly breakdown by Filter Pump, Chlorinator and Sweep" loading="lazy">
+          <figcaption>Energy tab — a new feature built on cross-domain knowledge from the energy world</figcaption>
         </figure>
 
         <h3>Rapid Start — giving a clear name to something users already did</h3>
@@ -285,14 +295,17 @@
           <figcaption>Rapid Start — in progress, with a clear timestamp so users know how fresh the data is</figcaption>
         </figure>
 
-        <div class="figure-row-3">
+        <h3>Giving users real control, not just defaults</h3>
+        <p>The original app had automation settings, but they were buried and hard to reach — most pool owners had no idea they could customise how their pool ran. I redesigned Automation Preferences as a dedicated, accessible screen with clear toggles and plain-language explanations for each option: when equipment runs during the day, whether to add a night-time chlorination burst, whether to account for a pool cover or rooftop solar. Surfacing these properly meant pool owners could configure their pool to suit how they actually live, rather than leaving it on whatever defaults the installer had set.</p>
+        <p>The solar-aware scheduling option came directly from the energy domain knowledge I'd built on Zelora and Enreal — pool owners with rooftop solar can shift their pool's running time to coincide with peak generation, reducing grid draw without any manual effort.</p>
+        <figure>
+          <img src="images/projects/pooledautomation.jpg" alt="Automation Preferences screen with running mode, night-time chlorination, solar and pool cover toggles" loading="lazy">
+          <figcaption>Automation Preferences — a dedicated screen replacing a buried, hard-to-find setting</figcaption>
+        </figure>
+        <div class="figure-row">
           <figure>
             <img src="images/projects/pooledschedule.png" alt="Add Schedule screen with equipment dropdown, time pickers and day selector" loading="lazy">
             <figcaption>Scheduling — set it once, trust the automation</figcaption>
-          </figure>
-          <figure>
-            <img src="images/projects/pooledautomation.jpg" alt="Automation Preferences screen with running mode, night-time, solar and pool cover toggles" loading="lazy">
-            <figcaption>Automation preferences — solar-aware scheduling</figcaption>
           </figure>
           <figure>
             <img src="images/projects/pooledmaintenance.jpg" alt="Maintenance screen with 2x2 grid of tasks including Calibrate pH, Guided Backwash and Superchlorination" loading="lazy">
