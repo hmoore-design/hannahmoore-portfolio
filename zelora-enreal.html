@@ -142,6 +142,10 @@
 
     /* LIGHTBOX */
     figure img { cursor: zoom-in; }
+    /* VIDEO */
+    .video-wrap { max-width: 320px; margin: 36px auto 0; position: relative; padding-bottom: 177.78%; border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 16px 48px rgba(30,30,46,0.1); }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
     .lightbox { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(15,15,25,0.88); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 24px; }
     .lightbox.open { display: flex; }
     .lightbox-img { max-width: 90vw; max-height: 90vh; width: auto; height: auto; border-radius: 12px; box-shadow: 0 40px 100px rgba(0,0,0,0.5); object-fit: contain; cursor: default; }
@@ -217,6 +221,7 @@
       <ul class="sidebar-nav">
         <li><a href="#overview">Overview</a></li>
         <li><a href="#decisions">Key decisions</a></li>
+        <li><a href="#in-action">In action</a></li>
         <li><a href="#web-portal">Web portal</a></li>
         <li><a href="#outcome">Outcome</a></li>
       </ul>
@@ -311,6 +316,15 @@
             <img src="images/projects/enreal-house.png" alt="Enreal home screen with clean teal brand palette" loading="lazy">
             <figcaption>Enreal — clean teal palette for a home electrification audience</figcaption>
           </figure>
+        </div>
+      </div>
+
+      <div id="in-action" class="case-section reveal">
+        <div class="case-section-label">In action</div>
+        <h2>The app walkthrough</h2>
+        <p>A walkthrough of the Zelora app showing the core energy dashboard, simple and complex view modes, and the savings experience across a live account.</p>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/qQBIwWrddfY" title="Zelora app walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
 
