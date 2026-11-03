@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
+  <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -31,8 +33,13 @@
       --sans: 'Nunito', sans-serif;
       --pad: clamp(20px, 5vw, 80px);
       --r: 20px;
+
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-inout:  cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-fast: .15s; --dur: .45s; --dur-slow: .8s;
     }
-    html { scroll-behavior: smooth; }
+    @keyframes rise { from { opacity: 0; transform: translateY(.55em); } to { opacity: 1; transform: none; } }
     body { background: var(--white); color: var(--ink); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
 
     /* NAV */
@@ -40,10 +47,15 @@
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo img { height: 28px; width: auto; }
     .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
-    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; padding: 7px 15px; border-radius: 100px; transition: background 0.18s, color 0.18s; }
-    .nav-links a:hover { background: var(--periwinkle-light); color: var(--ink); }
+    .nav-track { position: relative; display: flex; gap: 4px; align-items: center; }
+    .nav-pill { position: absolute; inset: 0 auto 0 0; border-radius: 100px; background: var(--periwinkle-light); opacity: 0; transition: transform var(--dur) var(--ease-inout), width var(--dur) var(--ease-inout), opacity .25s; }
+    .nav-links a { position: relative; font-size: 0.85rem; font-weight: 500; color: var(--ink-mid); text-decoration: none; padding: 7px 15px; border-radius: 100px; transition: background 0.18s, color 0.18s; }
+    .nav-links a:hover { color: var(--ink); }
     .nav-links .cta { background: var(--periwinkle); color: var(--ink) !important; font-weight: 600; }
     .nav-links .cta:hover { background: var(--periwinkle-deep); color: #fff !important; }
+    .squish { transition: transform .35s var(--ease-spring), background .3s; }
+    .squish:hover { transform: scale(1.04); }
+    .squish:active { transform: scale(.9); transition-duration: .08s; }
 
     /* HERO */
     .case-hero { background: var(--periwinkle-pale); padding: 64px var(--pad) 0; }
@@ -55,8 +67,8 @@
       gap: 56px;
       align-items: end;
     }
-    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; margin-bottom: 40px; transition: color 0.2s; }
-    .back-link:hover { color: var(--periwinkle-dark); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); text-decoration: none; margin-bottom: 40px; transition: color 0.2s, transform .3s var(--ease-out); }
+    .back-link:hover { color: var(--periwinkle-dark); transform: translateX(-2px); }
     .case-meta { display: flex; gap: 32px; margin-bottom: 28px; flex-wrap: wrap; }
     .case-meta-item { }
     .case-meta-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 3px; }
@@ -98,7 +110,7 @@
       border-radius: 50%;
       background: currentColor;
       flex-shrink: 0;
-      transition: transform 0.2s;
+      transition: transform .4s var(--ease-spring);
     }
     .sidebar-nav a:hover { color: var(--ink-mid); }
     .sidebar-nav a.active { color: var(--periwinkle-dark); font-weight: 600; }
@@ -133,20 +145,34 @@
     .next-project:hover { background: var(--periwinkle-pale); }
     .next-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
     .next-title { font-family: var(--serif); font-size: clamp(22px, 3vw, 36px); letter-spacing: -0.02em; }
-    .next-arrow { width: 52px; height: 52px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; }
-    .next-project:hover .next-arrow { background: var(--periwinkle); border-color: var(--periwinkle); }
+    .next-arrow { width: 52px; height: 52px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s, transform .45s var(--ease-spring); }
+    .next-project:hover .next-arrow { background: var(--periwinkle); border-color: var(--periwinkle); transform: rotate(-45deg); }
 
     footer { padding: 22px var(--pad); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--ink-light); flex-wrap: wrap; gap: 10px; }
 
     .store-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
-    .store-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 100px; text-decoration: none; font-size: 0.82rem; font-weight: 600; color: var(--ink); background: var(--white); transition: background 0.18s, border-color 0.18s; }
-    .store-link:hover { background: var(--periwinkle-pale); border-color: var(--periwinkle); }
+    .store-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 100px; text-decoration: none; font-size: 0.82rem; font-weight: 600; color: var(--ink); background: var(--white); transition: background 0.18s, border-color 0.18s, transform .35s var(--ease-spring); }
+    .store-link:hover { background: var(--periwinkle-pale); border-color: var(--periwinkle); transform: translateY(-2px); }
     .store-link svg { flex-shrink: 0; }
     .store-link-group { margin-top: 36px; }
     .store-link-group-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 12px; }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @supports (animation-timeline: view()) {
+      .reveal {
+        opacity: 1; transform: none; transition: none;
+        animation: rise linear both;
+        animation-timeline: view();
+        animation-range: entry 5% entry 45%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
 
     /* LIGHTBOX */
     figure img { cursor: zoom-in; }
@@ -187,9 +213,11 @@
       <img src="images/logo/hannah-moore-logo.svg" alt="Hannah Moore" onerror="this.style.display='none'">
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#work">Work</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="https://tally.so/r/Xx8JvO" class="cta">Say hello 👋</a></li>
+      <li class="nav-track">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="index.html#work">Work</a><a href="index.html#about">About</a>
+      </li>
+      <li><a href="https://tally.so/r/Xx8JvO" class="cta squish">Say hello 👋</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -475,6 +503,23 @@
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!reduceMotion && window.Lenis) {
+        new Lenis({ autoRaf: true, lerp: 0.1, anchors: { offset: -80 } });
+      }
+
+      const track = document.querySelector('.nav-track');
+      const pill = track.querySelector('.nav-pill');
+      track.querySelectorAll('a').forEach(a => {
+        const go = () => { pill.style.width = a.offsetWidth + 'px'; pill.style.transform = `translateX(${a.offsetLeft}px)`; pill.style.opacity = 1; };
+        a.addEventListener('mouseenter', go);
+        a.addEventListener('focus', go);
+      });
+      track.addEventListener('mouseleave', () => pill.style.opacity = 0);
+    });
   </script>
 
 </body>
